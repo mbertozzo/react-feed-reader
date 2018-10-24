@@ -1,0 +1,41 @@
+.container {
+  display: grid;
+  grid-template-columns: 33% auto;
+  grid-template-rows: 100vh;
+}
+
+.container div {
+  box-sizing: border-box;
+}
+
+.container div:first-child {
+  padding: 40px 20px 40px 80px;
+  background-color: rgb(238,238,238);
+}
+
+.container div:nth-child(2) {
+  padding: 20px;
+  background-color: rgb(244,244,244);
+}
+
+.logo {
+  width: 30px;
+  height: auto;
+  display: block;
+}
+
+.title {
+  font-size: 1.3em;
+  margin-bottom: 80px;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: #666;
+  margin-bottom: 7px;
+}
+
+.link:hover {
+  color: #000;
+}
