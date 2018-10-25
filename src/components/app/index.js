@@ -10,14 +10,14 @@ class App extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <div>
+        <div className={styles.firstColumn}>
           <img className={styles.logo} src={logo} alt="Newspaper" />
           <h1 className={styles.title}>Feed Reader</h1>
 
           <Link className={styles.link} to="/">Your Feed</Link>
           <Link className={styles.link} to="/about">About The Project</Link>
         </div>
-        <div>
+        <div className={styles.secondColumn}>
           <Main />
         </div>
       </div>
