@@ -21,12 +21,13 @@ function fetchNews(query) {
 function* workerSaga(action) {
   try {
     const { query } = action;
-    const response = yield call(fetchNews, query);
-    const news = response.data.articles;
+    if(query){
+      const response = yield call(fetchNews, query);
+      const news = response.data.articles;
 
-    // dispatch a success action to the store with the new dog
-    yield put(apiCallSuccess(news));
-  
+      // dispatch a success action to the store with the new dog
+      yield put(apiCallSuccess(news));
+    }
   } catch (error) {
     // dispatch a failure action to the store with the error
     yield put(apiCallFailure(error));
