@@ -8,13 +8,13 @@
   box-sizing: border-box;
 }
 
-.container div:first-child {
+.container .firstColumn {
   padding: 40px 20px 40px 80px;
   background-color: rgb(238,238,238);
 }
 
-.container div:nth-child(2) {
-  padding: 20px;
+.container .secondColumn {
+  padding: 40px 20px 40px 20px;
   background-color: rgb(244,244,244);
 }
 
