@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: 33% auto;
-  grid-template-rows: 100vh;
+  grid-template-rows: minmax(100vh, max-content);
 }
 
 .container div {

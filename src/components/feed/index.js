@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateQuery } from './../../redux/actions';
 
 import styles from './style.module.css';
+import { API_KEY } from './apikey';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,8 +20,23 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Feed extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      articles: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey='+API_KEY)
+      .then(response => response.json())
+      .then(data => this.setState({ articles: data.articles }));
+  }
+
   render () {
     const { query, handleUpdateQuery } = this.props;
+    const { articles } = this.state;
 
     return (
       <div>
@@ -29,12 +45,13 @@ class Feed extends React.Component {
           name="query"
           type="text"
           placeholder="What are you looking for?"
-          onBlur={(e) => {
+          onChange={(e) => {
             e.preventDefault();
             handleUpdateQuery(e.target.value)
           }}
         />
         <p>{query}</p>
+        {articles.map((article, i) => (<a href={article.url} key={i} className={styles.newsLink}>{article.title}<br /><span>{article.source.name}</span></a>))}
       </div>
     )
   }

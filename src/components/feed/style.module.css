@@ -11,11 +11,12 @@
   box-sizing: border-box;
   color: #666;
   transition: all 1s ease;
+  margin-bottom: 50px;
 }
 
 .inputField:focus {
   outline: none;
-  box-shadow: 3px 3px 8px #666;
+  box-shadow: 3px 3px 8px #aaa;
 }
 
 .inputLabel {
@@ -23,4 +24,17 @@
   padding-left: 10px;
   margin-bottom: 10px;
   font-weight: 600;
+}
+
+.newsLink {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.newsLink span {
+  color: #666;
+  font-size: 12px;
 }
