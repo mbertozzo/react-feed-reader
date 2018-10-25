@@ -1,3 +1,26 @@
-.imgResponsive {
-  max-width: 50%;
+.inputField {
+  background-color: #fff;
+  height: 50px;
+  width: 100%;
+  border:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  color: #666;
+  transition: all 1s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  box-shadow: 3px 3px 8px #666;
+}
+
+.inputLabel {
+  font-size: 12px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
