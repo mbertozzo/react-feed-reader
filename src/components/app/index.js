@@ -12,9 +12,9 @@ class App extends Component {
       <div className={styles.container}>
         <div className={styles.firstColumn}>
           <img className={styles.logo} src={logo} alt="Newspaper" />
-          <h1 className={styles.title}>Feed Reader</h1>
+          <h1 className={styles.title}>News Reader</h1>
 
-          <Link className={styles.link} to="/">Your Feed</Link>
+          <Link className={styles.link} to="/">Your News</Link>
           <Link className={styles.link} to="/about">About The Project</Link>
         </div>
         <div className={styles.secondColumn}>

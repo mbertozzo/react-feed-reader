@@ -1,30 +1,34 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 import axios from "axios";
 
+import { UPDATE_QUERY, apiCallSuccess, apiCallFailure } from './actions';
+import { API_KEY } from './apikey';
+
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* watcherSaga() {
-  yield takeLatest("API_CALL_REQUEST", workerSaga);
+  const action = yield takeLatest(UPDATE_QUERY, workerSaga);
 }
 
 // function that makes the api request and returns a Promise for response
-function fetchDog() {
+function fetchNews(query) {
   return axios({
     method: "get",
-    url: "https://dog.ceo/api/breeds/image/random"
+    url: "https://newsapi.org/v2/everything?q="+query+"&sortBy=publishedAt&apiKey="+API_KEY
   });
 }
 
 // worker saga: makes the api call when watcher saga sees the action
-function* workerSaga() {
+function* workerSaga(action) {
   try {
-    const response = yield call(fetchDog);
-    const dog = response.data.message;
+    const { query } = action;
+    const response = yield call(fetchNews, query);
+    const news = response.data.articles;
 
     // dispatch a success action to the store with the new dog
-    yield put({ type: "API_CALL_SUCCESS", dog });
+    yield put(apiCallSuccess(news));
   
   } catch (error) {
     // dispatch a failure action to the store with the error
-    yield put({ type: "API_CALL_FAILURE", error });
+    yield put(apiCallFailure(error));
   }
 }

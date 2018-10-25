@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # apikey
-/src/components/feed/apikey.js
+/src/redux/apikey.js
