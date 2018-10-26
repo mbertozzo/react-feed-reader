@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './style.module.css'
+import NewsEntry from './../newsentry';
 import { API_KEY } from './../../redux/apikey'; 
 import { updateSource } from '../../redux/actions';
 import { connect } from 'react-redux';
@@ -58,7 +59,14 @@ class Headlines extends React.Component {
             : (<p></p>)
         }
         {
-          source.news.map((article, i) => (<a href={article.url} key={i} className={styles.newsLink}>{article.title}<br /><span>{article.author}</span></a>))
+          source.news.map((article, i) => (
+            <NewsEntry 
+              key={i}
+              url={article.url}
+              title={article.title}
+              author={article.source.name}
+            />
+          ))
         }
       </div>
     )

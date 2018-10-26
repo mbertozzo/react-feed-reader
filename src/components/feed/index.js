@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateQuery } from './../../redux/actions';
 
 import styles from './style.module.css';
+import NewsEntry from './../newsentry';
 
 const mapStateToProps = (state) => {
   return {
@@ -38,10 +39,17 @@ class Feed extends React.Component {
         {/* <p>{query}</p> */}
         {
           (query) ?
-            ( news.map((article, i) => (<a href={article.url} key={i} className={styles.newsLink}>{article.title}<br /><span>{article.source.name}</span></a>)) )
+            ( news.map((article, i) => (
+              <NewsEntry 
+                key={i}
+                url={article.url}
+                title={article.title}
+                author={article.source.name}
+              />
+              ))
+            )
             : ( <p></p>)
         }
-
       </div>
     )
   }
