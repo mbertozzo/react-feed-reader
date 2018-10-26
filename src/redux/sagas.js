@@ -6,7 +6,7 @@ import { API_KEY } from './apikey';
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* watcherSaga() {
-  const action = yield takeLatest(UPDATE_QUERY, workerSaga);
+  yield takeLatest(UPDATE_QUERY, workerSaga);
 }
 
 // function that makes the api request and returns a Promise for response

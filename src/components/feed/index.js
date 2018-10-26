@@ -29,7 +29,7 @@ class Feed extends React.Component {
           className={styles.inputField}
           name="query"
           type="text"
-          placeholder="What are you looking for?"
+          placeholder="What are you interested in?"
           onChange={(e) => {
             e.preventDefault();
             handleUpdateQuery(e.target.value)
