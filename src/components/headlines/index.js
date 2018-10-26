@@ -41,7 +41,7 @@ class Headlines extends React.Component {
     return (  
       <div>
         <select 
-          className={styles.inputField} 
+          className={styles.inputField}
           onChange={(e) => {
             e.preventDefault();
             const selectedIndex = e.target.options.selectedIndex;
@@ -49,12 +49,16 @@ class Headlines extends React.Component {
             handleSourceUpdate(sourceId,e.target.value)
           }
         }>
+          <option>Choose your news source</option>
           {sources.map((source, i) => (<option key={i} data-ids={source.id}>{source.name}</option>))}
         </select>
         {
           (source.name) ?
-            (<p>Headlines from <strong>{source.name}</strong>.</p>)
+            (<h2 className={styles.subtitle}>Headlines from <strong>{source.name}</strong>.</h2>)
             : (<p></p>)
+        }
+        {
+          source.news.map((article, i) => (<a href={article.url} key={i} className={styles.newsLink}>{article.title}<br /><span>{article.author}</span></a>))
         }
       </div>
     )
