@@ -11,6 +11,7 @@
 .container .firstColumn {
   padding: 40px 20px 40px 80px;
   background-color: rgb(238,238,238);
+  position: relative;
 }
 
 .container .secondColumn {
@@ -38,4 +39,12 @@
 
 .link:hover {
   color: #000;
+}
+
+.credits {
+  position:absolute;
+  bottom:40px;
+  left: 80px;
+  font-size: 10px;
+  color: #666;
 }

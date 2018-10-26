@@ -17,6 +17,8 @@ class App extends Component {
           <Link className={styles.link} to="/">Your News</Link>
           <Link className={styles.link} to="/headlines">Top Headlines</Link>
           <Link className={styles.link} to="/about">About The Project</Link>
+            
+          <p className={styles.credits}>Data provided by NewsApi.org</p>
         </div>
         <div className={styles.secondColumn}>
           <Main />
